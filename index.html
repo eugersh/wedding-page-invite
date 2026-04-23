@@ -705,12 +705,8 @@
                         Пожалуйста, заполните анкету отдельно на каждого гостя. Если вы приглашены парой, форму нужно отправить дважды.
                     </p>
                     <p class="form-hint">
-                        После нажатия откроется Google Form с уже заполненными данными. Если переход не сработает, можно открыть анкету по кнопке ниже.
+                        После нажатия анкета будет отправлена в Google Form без перехода на отдельную страницу.
                     </p>
-                    <a class="secondary-link" href="https://docs.google.com/forms/d/e/1FAIpQLSeusLajjggxC3Ha-vfGIkf-33nIinC36_H8Jq4PSNg4dpPkIw/viewform?usp=pp_url" target="_blank" rel="noopener noreferrer">
-                        <i class="far fa-file-alt"></i>
-                        Открыть анкету напрямую
-                    </a>
                     <form id="rsvpForm">
                         <div class="form-group">
                             <label class="form-label" for="guestName">Фамилия и имя *</label>
@@ -829,34 +825,50 @@
             status.classList.add('is-visible');
         }
 
-        function buildGoogleFormUrl(formData) {
-            if (!googleFormConfig.formUrl) {
-                return '';
+        function submitToGoogleForm(formData) {
+            const submitUrl = googleFormConfig.formUrl.replace('/viewform', '/formResponse');
+            const transportFrameName = 'googleFormTransportFrame';
+            let transportFrame = document.querySelector('iframe[name="' + transportFrameName + '"]');
+
+            if (!transportFrame) {
+                transportFrame = document.createElement('iframe');
+                transportFrame.name = transportFrameName;
+                transportFrame.style.display = 'none';
+                document.body.appendChild(transportFrame);
             }
 
-            const url = new URL(googleFormConfig.formUrl);
+            const transportForm = document.createElement('form');
+            transportForm.method = 'POST';
+            transportForm.action = submitUrl;
+            transportForm.target = transportFrameName;
+            transportForm.style.display = 'none';
 
-            if (formData.guestName) {
-                url.searchParams.append(googleFormConfig.fields.guestName, formData.guestName);
-            }
+            const appendField = (name, value) => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = name;
+                input.value = value;
+                transportForm.appendChild(input);
+            };
 
-            if (formData.attendance) {
-                url.searchParams.append(googleFormConfig.fields.attendance, formData.attendance);
-            }
+            appendField(googleFormConfig.fields.guestName, formData.guestName);
+            appendField(googleFormConfig.fields.attendance, formData.attendance);
 
             if (formData.foodRestrictions) {
-                url.searchParams.append(googleFormConfig.fields.foodRestrictions, formData.foodRestrictions);
+                appendField(googleFormConfig.fields.foodRestrictions, formData.foodRestrictions);
             }
 
             formData.alcoholPreference.forEach((value) => {
-                url.searchParams.append(googleFormConfig.fields.alcoholPreference, value);
+                appendField(googleFormConfig.fields.alcoholPreference, value);
             });
 
             if (formData.transfer) {
-                url.searchParams.append(googleFormConfig.fields.transfer, formData.transfer);
+                appendField(googleFormConfig.fields.transfer, formData.transfer);
             }
 
-            return url.toString();
+            document.body.appendChild(transportForm);
+            transportForm.submit();
+            transportForm.remove();
         }
 
         setInterval(updateCountdown, 1000);
@@ -877,14 +889,10 @@
             };
 
             if (googleFormConfig.enabled) {
-                const targetUrl = buildGoogleFormUrl(formData);
-                if (targetUrl) {
-                    showFormStatus('Переходим к Google Form с заполненными данными...');
-                    setTimeout(() => {
-                        window.location.href = targetUrl;
-                    }, 150);
-                    return;
-                }
+                submitToGoogleForm(formData);
+                showFormStatus('Спасибо! Ваш ответ отправлен. Если вы заполняете анкету за пару, пожалуйста, отправьте форму еще раз для второго гостя.');
+                this.reset();
+                return;
             }
 
             const attendanceText = formData.attendance === 'Да, с удовольствием'
