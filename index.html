@@ -32,14 +32,24 @@
             color: var(--text);
             line-height: 1.6;
             min-height: 100vh;
-            background-image: url('lemon-frame.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            background-attachment: fixed;
             display: flex;
             justify-content: center;
             width: 100%;
+            position: relative;
+            isolation: isolate;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url('lemon-frame.png');
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: contain;
+            pointer-events: none;
+            z-index: -1;
         }
 
         .container {
@@ -466,6 +476,11 @@
 
             .contacts {
                 grid-template-columns: 1fr;
+            }
+
+            body::before {
+                background-position: center top;
+                background-size: 100% auto;
             }
         }
 
