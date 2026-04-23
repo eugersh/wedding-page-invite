@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Евгений & Мария | 07.08.2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --beige: #f8f3e9;
+            --light-beige: #fdfaf5;
+            --red: #cf3e4a;
+            --dark-red: #b92d39;
+            --brown: #8d6e63;
+            --dark-brown: #5d4037;
+            --text: #4a4a4a;
+            --muted: #7a6a62;
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--beige);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image: url('lemon-frame.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 860px;
+            padding: 0 20px 30px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            font-family: 'Great Vibes', cursive;
+            font-weight: normal;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: var(--brown);
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        section {
+            padding: 36px 24px;
+            margin: 18px auto;
+            background-color: rgba(253, 250, 245, 0.92);
+            border-radius: 40px;
+            box-shadow: 0 5px 15px var(--shadow);
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(2px);
+        }
+
+        .header {
+            text-align: center;
+            background-color: transparent;
+            box-shadow: none;
+            backdrop-filter: none;
+            padding-top: 52px;
+        }
+
+        .names {
+            font-size: 3.7rem;
+            margin: 12px 0 16px;
+            line-height: 1.1;
+            color: var(--dark-brown);
+        }
+
+        .date {
+            font-size: 1.8rem;
+            color: var(--red);
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+
+        .lead {
+            max-width: 620px;
+            margin: 0 auto 28px;
+            font-size: 1.04rem;
+            color: var(--dark-brown);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            text-align: center;
+            background: var(--white);
+            padding: 15px 10px;
+            border-radius: 15px;
+            min-width: 72px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .countdown-number {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--red);
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.78rem;
+            color: var(--brown);
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        .location-card,
+        .info-block,
+        .contact-card {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 24px;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .location-name {
+            font-size: 1.3rem;
+            color: var(--dark-brown);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .location-address {
+            color: var(--brown);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .location-address i,
+        .info-title i,
+        .contact-item i {
+            color: var(--red);
+        }
+
+        .section-text {
+            margin-bottom: 14px;
+        }
+
+        .section-note {
+            margin-top: 14px;
+            font-style: italic;
+            color: var(--brown);
+        }
+
+        .map-link,
+        .secondary-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .map-link {
+            margin-top: 10px;
+            background: linear-gradient(135deg, var(--red), var(--dark-red));
+            color: var(--white);
+            box-shadow: 0 7px 15px rgba(207, 62, 74, 0.2);
+        }
+
+        .secondary-link {
+            background: rgba(207, 62, 74, 0.08);
+            color: var(--dark-red);
+        }
+
+        .map-link:hover,
+        .secondary-link:hover,
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .info-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            color: var(--dark-brown);
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            margin-top: 16px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--red);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 22px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -19px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--red);
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 2px var(--red);
+        }
+
+        .timeline-time {
+            font-weight: 600;
+            color: var(--dark-brown);
+            margin-bottom: 4px;
+        }
+
+        .timeline-text {
+            color: var(--text);
+        }
+
+        .info-list {
+            padding-left: 18px;
+        }
+
+        .info-list li + li {
+            margin-top: 10px;
+        }
+
+        .inline-badge {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(141, 110, 99, 0.12);
+            color: var(--dark-brown);
+            font-size: 0.85rem;
+            margin-bottom: 14px;
+        }
+
+        .swatches {
+            display: flex;
+            gap: 14px;
+            margin: 14px 0 18px;
+            flex-wrap: wrap;
+        }
+
+        .swatch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .swatch-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+        }
+
+        .contacts {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .contact-name {
+            font-weight: 600;
+            color: var(--dark-brown);
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.15rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-item a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--dark-red);
+        }
+
+        .rsvp-form {
+            margin-top: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark-brown);
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            background: var(--white);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--red);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-group {
+            display: grid;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .radio-option input {
+            accent-color: var(--red);
+            width: 18px;
+            height: 18px;
+        }
+
+        .checkbox-option input {
+            accent-color: var(--red);
+            width: 18px;
+            height: 18px;
+            flex: 0 0 auto;
+        }
+
+        .form-hint {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 18px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--red), var(--dark-red));
+            color: var(--white);
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+            max-width: 320px;
+            box-shadow: 0 7px 15px rgba(207, 62, 74, 0.18);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-status {
+            margin-top: 18px;
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: rgba(207, 62, 74, 0.08);
+            color: var(--dark-brown);
+            display: none;
+        }
+
+        .form-status.is-visible {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 26px 20px 10px;
+            color: var(--brown);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px 24px;
+            }
+
+            section {
+                padding: 30px 18px;
+                border-radius: 30px;
+            }
+
+            .names {
+                font-size: 2.8rem;
+            }
+
+            .contacts {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .names {
+                font-size: 2.35rem;
+            }
+
+            .date {
+                font-size: 1.45rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .lead {
+                font-size: 0.98rem;
+            }
+
+            .countdown {
+                gap: 10px;
+            }
+
+            .countdown-item {
+                min-width: 66px;
+                padding: 12px 8px;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .submit-btn,
+            .map-link,
+            .secondary-link {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="header">
+            <h1 class="names">Женя & Мария</h1>
+            <div class="date">07 августа 2026 года</div>
+            <p class="lead">
+                С большой радостью приглашаем вас разделить с нами один из самых важных дней в нашей жизни.
+                Будем счастливы провести этот день в кругу родных, близких и любимых людей.
+            </p>
+
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">000</div>
+                    <div class="countdown-label">дней</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">часов</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">минут</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">секунд</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Место проведения</h2>
+            <div class="location-card">
+                <div class="location-name">Хвоя, лесная сфера</div>
+                <div class="location-address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>г. Бердск, микрорайон Речкуновская Зона Отдыха, 6а</span>
+                </div>
+                <p class="section-text">
+                    Ниже мы оставили ссылку на ближайшую точку в 2ГИС. Позже добавим более подробный гайд по маршруту и подъезду к площадке.
+                </p>
+                <a class="map-link" href="https://2gis.ru/search/%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%20%D0%A0%D0%B5%D1%87%D0%BA%D1%83%D0%BD%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D0%97%D0%BE%D0%BD%D0%B0%20%D0%9E%D1%82%D0%B4%D1%8B%D1%85%D0%B0%2C%206%D0%B0" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-location-arrow"></i>
+                    Открыть маршрут в 2ГИС
+                </a>
+                <p class="section-note">
+                    После окончания торжества для гостей будет организован обратный трансфер.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Тайминг свадьбы</h2>
+            <div class="info-block">
+                <div class="info-title">
+                    <i class="far fa-clock"></i>
+                    <span>Расписание мероприятия</span>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">15:30</div>
+                        <div class="timeline-text">Сбор гостей и welcome</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">16:30</div>
+                        <div class="timeline-text">Церемония</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">17:00</div>
+                        <div class="timeline-text">Начало банкета</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">22:00</div>
+                        <div class="timeline-text">Танцевальная вечеринка</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">23:00</div>
+                        <div class="timeline-text">Окончание торжества</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">23:15</div>
+                        <div class="timeline-text">Обратный трансфер</div>
+                    </div>
+                </div>
+                <p class="section-note">
+                    Просим ориентироваться на это расписание при планировании дороги и возвращения домой.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Дресс-код</h2>
+            <div class="info-block">
+                <div class="info-title">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Рекомендации по стилю</span>
+                </div>
+                <span class="inline-badge">Раздел еще будет доработан</span>
+                <p class="section-text">Мы будем рады, если вы поддержите цветовую палитру нашей свадьбы:</p>
+                <div class="swatches">
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #f8f3e9;"></div>
+                        <span>Светло-бежевый</span>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #cf3e4a;"></div>
+                        <span>Красный</span>
+                    </div>
+                    <div class="swatch">
+                        <div class="swatch-color" style="background: #8d6e63;"></div>
+                        <span>Коричневый</span>
+                    </div>
+                </div>
+                <p class="section-text"><strong>Форма одежды:</strong> Cocktail / Smart Casual</p>
+                <ul class="info-list">
+                    <li>Позже мы добавим сюда полную палитру из 4-6 цветов и примеры подходящих образов.</li>
+                    <li>Просим по возможности избегать полностью белых нарядов, особенно белых платьев.</li>
+                    <li>Если сомневаетесь в выборе одежды, всегда можно написать нам и уточнить.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Подарки и цветы</h2>
+            <div class="info-block">
+                <div class="info-title">
+                    <i class="fas fa-gift"></i>
+                    <span>Ваше присутствие - уже подарок</span>
+                </div>
+                <p class="section-text">
+                    Самое главное для нас - разделить этот день вместе с вами. Если вы захотите поздравить нас подарком,
+                    мы будем рады вкладу в виде конверта.
+                </p>
+                <ul class="info-list">
+                    <li>Просим не дарить цветы: после праздника мы не сможем сразу забрать их домой, и нам будет жаль, если они быстро завянут.</li>
+                    <li>Если хочется дополнить подарок чем-то еще, будем рады книге с вашей подписью и теплыми пожеланиями.</li>
+                </ul>
+                <p class="section-note">
+                    Спасибо за вашу заботу, внимание и понимание.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Контакты</h2>
+            <div class="info-block" style="margin-bottom: 18px;">
+                <div class="info-title">
+                    <i class="fas fa-bus"></i>
+                    <span>Вопросы по трансферу и организации</span>
+                </div>
+                <p class="section-text">
+                    Если у вас будут вопросы по логистике, формату праздника или обратному трансферу, смело свяжитесь с нами.
+                    Ближе к дате мы отдельно сообщим детали отправления трансфера.
+                </p>
+            </div>
+            <div class="contacts">
+                <div class="contact-card">
+                    <div class="contact-name">Женя</div>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79137909769">+7 913 790-97-69</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-telegram"></i>
+                            <a href="https://t.me/eugersh" target="_blank" rel="noopener noreferrer">@eugersh</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-name">Мария</div>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79137393845">+7 913 739-38-45</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-telegram"></i>
+                            <a href="https://t.me/mrb19a" target="_blank" rel="noopener noreferrer">@mrb19a</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Подтвердите участие</h2>
+            <div class="info-block">
+                <div class="info-title">
+                    <i class="far fa-address-card"></i>
+                    <span>Анкета гостя</span>
+                </div>
+                <div class="rsvp-form">
+                    <p class="section-text">
+                        Пожалуйста, заполните анкету отдельно на каждого гостя. Если вы приглашены парой, форму нужно отправить дважды.
+                    </p>
+                    <p class="form-hint">
+                        После нажатия откроется Google Form с уже заполненными данными. Если переход не сработает, можно открыть анкету по кнопке ниже.
+                    </p>
+                    <a class="secondary-link" href="https://docs.google.com/forms/d/e/1FAIpQLSeusLajjggxC3Ha-vfGIkf-33nIinC36_H8Jq4PSNg4dpPkIw/viewform?usp=pp_url" target="_blank" rel="noopener noreferrer">
+                        <i class="far fa-file-alt"></i>
+                        Открыть анкету напрямую
+                    </a>
+                    <form id="rsvpForm">
+                        <div class="form-group">
+                            <label class="form-label" for="guestName">Фамилия и имя *</label>
+                            <input type="text" class="form-input" id="guestName" name="guestName" required placeholder="Иванов Иван">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Сможете ли вы присутствовать? *</label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="attendance" value="Да, с удовольствием" required>
+                                    <span>Да, с удовольствием</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="attendance" value="К сожалению, не смогу">
+                                    <span>К сожалению, не смогу</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="foodRestrictions">Есть ли ограничения по еде?</label>
+                            <textarea class="form-input" id="foodRestrictions" name="foodRestrictions" rows="4" placeholder="Например: аллергия, вегетарианское меню, не ем рыбу"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Какой алкоголь вы предпочитаете?</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="alcoholPreference" value="Вино белое">
+                                    <span>Вино белое</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="alcoholPreference" value="Вино красное">
+                                    <span>Вино красное</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="alcoholPreference" value="Игристое">
+                                    <span>Игристое</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="alcoholPreference" value="Крепкий алкоголь">
+                                    <span>Крепкий алкоголь</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="alcoholPreference" value="Не употребляю алкоголь">
+                                    <span>Не употребляю алкоголь</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Нужен ли вам обратный трансфер?</label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="transfer" value="Да, нужен">
+                                    <span>Да, нужен</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="transfer" value="Нет, доберусь самостоятельно">
+                                    <span>Нет, доберусь самостоятельно</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Отправить ответ</button>
+                    </form>
+                    <div class="form-status" id="formStatus"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>С любовью, Женя и Мария</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">07.08.2026 - день нашей свадьбы</p>
+        </footer>
+    </div>
+
+    <script>
+        const googleFormConfig = {
+            enabled: true,
+            formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeusLajjggxC3Ha-vfGIkf-33nIinC36_H8Jq4PSNg4dpPkIw/viewform?usp=pp_url',
+            fields: {
+                guestName: 'entry.1304267105',
+                attendance: 'entry.61295993',
+                foodRestrictions: 'entry.2129640070',
+                alcoholPreference: 'entry.218342081',
+                transfer: 'entry.1896047224'
+            }
+        };
+
+        function updateCountdown() {
+            const weddingDate = new Date('August 7, 2026 15:30:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = weddingDate - now;
+
+            if (timeLeft < 0) {
+                document.getElementById('countdown').innerHTML = '<div style="text-align: center; font-size: 1.5rem; color: var(--red);">Свадьба состоялась!</div>';
+                return;
+            }
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(3, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        function showFormStatus(message) {
+            const status = document.getElementById('formStatus');
+            status.textContent = message;
+            status.classList.add('is-visible');
+        }
+
+        function buildGoogleFormUrl(formData) {
+            if (!googleFormConfig.formUrl) {
+                return '';
+            }
+
+            const url = new URL(googleFormConfig.formUrl);
+
+            if (formData.guestName) {
+                url.searchParams.append(googleFormConfig.fields.guestName, formData.guestName);
+            }
+
+            if (formData.attendance) {
+                url.searchParams.append(googleFormConfig.fields.attendance, formData.attendance);
+            }
+
+            if (formData.foodRestrictions) {
+                url.searchParams.append(googleFormConfig.fields.foodRestrictions, formData.foodRestrictions);
+            }
+
+            formData.alcoholPreference.forEach((value) => {
+                url.searchParams.append(googleFormConfig.fields.alcoholPreference, value);
+            });
+
+            if (formData.transfer) {
+                url.searchParams.append(googleFormConfig.fields.transfer, formData.transfer);
+            }
+
+            return url.toString();
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const attendanceInput = document.querySelector('input[name="attendance"]:checked');
+            const transferInput = document.querySelector('input[name="transfer"]:checked');
+            const alcoholInputs = Array.from(document.querySelectorAll('input[name="alcoholPreference"]:checked'));
+            const formData = {
+                guestName: document.getElementById('guestName').value.trim(),
+                attendance: attendanceInput ? attendanceInput.value : '',
+                foodRestrictions: document.getElementById('foodRestrictions').value.trim(),
+                alcoholPreference: alcoholInputs.map((input) => input.value),
+                transfer: transferInput ? transferInput.value : ''
+            };
+
+            if (googleFormConfig.enabled) {
+                const targetUrl = buildGoogleFormUrl(formData);
+                if (targetUrl) {
+                    showFormStatus('Переходим к Google Form с заполненными данными...');
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 150);
+                    return;
+                }
+            }
+
+            const attendanceText = formData.attendance === 'Да, с удовольствием'
+                ? 'Спасибо! Мы будем рады видеть вас на празднике.'
+                : 'Спасибо за ответ. Нам очень жаль, что вы не сможете присутствовать.';
+
+            showFormStatus(attendanceText + ' После создания Google Form мы подключим отправку ответов прямо из этой кнопки.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
