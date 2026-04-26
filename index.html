@@ -26,9 +26,9 @@
             --muted: #7a6a62;
             --white: #ffffff;
             --shadow: rgba(0, 0, 0, 0.08);
-            --mobile-content-width: 292px;
-            --frame-bleed-offset: -152px;
-            --frame-bleed-extra: 304px;
+            --mobile-content-width: 304px;
+            --frame-bleed-offset: -112px;
+            --frame-bleed-extra: 224px;
         }
 
         html {
@@ -42,6 +42,11 @@
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--beige);
+            background-image: url('lemon-frame.png');
+            background-repeat: no-repeat;
+            background-position: center var(--frame-bleed-offset);
+            background-size: auto calc(100vh + var(--frame-bleed-extra));
+            background-attachment: fixed;
             color: var(--text);
             line-height: 1.6;
             min-height: 100vh;
@@ -476,6 +481,12 @@
                 background-size: auto calc(100svh + var(--frame-bleed-extra));
             }
 
+            body {
+                background-position: center var(--frame-bleed-offset);
+                background-size: auto calc(100vh + var(--frame-bleed-extra));
+                background-size: auto calc(100svh + var(--frame-bleed-extra));
+            }
+
             .container {
                 max-width: var(--mobile-content-width);
                 padding: 0 0 28px;
@@ -546,7 +557,7 @@
 
         @media (max-width: 360px) {
             :root {
-                --mobile-content-width: 276px;
+                --mobile-content-width: 288px;
             }
 
             .container {
