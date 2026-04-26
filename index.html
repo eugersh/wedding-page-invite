@@ -34,6 +34,7 @@
             --frame-top-height: clamp(108px, 30vw, 320px);
             --frame-bottom-height: clamp(96px, 27vw, 289px);
             --frame-side-width: clamp(52px, 12vw, 128px);
+            --frame-side-overhang: clamp(7px, 1.6vw, 16px);
         }
 
         html {
@@ -76,14 +77,14 @@
         }
 
         .frame-top {
-            top: var(--telegram-top-clearance);
+            top: 0;
             height: var(--frame-top-height);
             background-image: url('frame-top.png');
             background-position: center top;
         }
 
         .frame-bottom {
-            bottom: var(--telegram-bottom-clearance);
+            bottom: 0;
             height: var(--frame-bottom-height);
             background-image: url('frame-bottom.png');
             background-position: center bottom;
@@ -91,23 +92,24 @@
 
         .frame-left,
         .frame-right {
-            top: calc(var(--telegram-top-clearance) + var(--frame-top-height) - 24px);
-            bottom: calc(var(--telegram-bottom-clearance) + var(--frame-bottom-height) - 18px);
+            top: calc(var(--frame-top-height) - 18px);
+            bottom: calc(var(--frame-bottom-height) - 14px);
             width: var(--frame-side-width);
             min-height: 220px;
-            background-size: 100% 100%;
+            background-repeat: repeat-y;
+            background-size: 100% auto;
         }
 
         .frame-left {
-            left: 0;
-            background-image: url('frame-left.png');
-            background-position: left center;
+            left: calc(-1 * var(--frame-side-overhang));
+            background-image: url('frame-left-tile.png');
+            background-position: left top;
         }
 
         .frame-right {
-            right: 0;
-            background-image: url('frame-right.png');
-            background-position: right center;
+            right: calc(-1 * var(--frame-side-overhang));
+            background-image: url('frame-right-tile.png');
+            background-position: right top;
         }
 
         .container {
