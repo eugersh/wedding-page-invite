@@ -27,26 +27,21 @@
             --white: #ffffff;
             --shadow: rgba(0, 0, 0, 0.08);
             --mobile-content-width: 304px;
-            --frame-bleed-offset: -112px;
-            --frame-bleed-extra: 224px;
+            --frame-width: max(132vw, 58svh);
+            --frame-offset-y: -52px;
         }
 
         html {
             background-color: var(--beige);
             background-image: url('lemon-frame.png');
             background-repeat: no-repeat;
-            background-position: center var(--frame-bleed-offset);
-            background-size: auto calc(100vh + var(--frame-bleed-extra));
+            background-position: center var(--frame-offset-y);
+            background-size: var(--frame-width) auto;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--beige);
-            background-image: url('lemon-frame.png');
-            background-repeat: no-repeat;
-            background-position: center var(--frame-bleed-offset);
-            background-size: auto calc(100vh + var(--frame-bleed-extra));
-            background-attachment: fixed;
             color: var(--text);
             line-height: 1.6;
             min-height: 100vh;
@@ -61,8 +56,8 @@
             inset: 0;
             background-image: url('lemon-frame.png');
             background-repeat: no-repeat;
-            background-position: center var(--frame-bleed-offset);
-            background-size: auto calc(100vh + var(--frame-bleed-extra));
+            background-position: center var(--frame-offset-y);
+            background-size: var(--frame-width) auto;
             pointer-events: none;
             z-index: 0;
         }
@@ -476,15 +471,8 @@
 
         @media (max-width: 768px) {
             html {
-                background-position: center var(--frame-bleed-offset);
-                background-size: auto calc(100vh + var(--frame-bleed-extra));
-                background-size: auto calc(100svh + var(--frame-bleed-extra));
-            }
-
-            body {
-                background-position: center var(--frame-bleed-offset);
-                background-size: auto calc(100vh + var(--frame-bleed-extra));
-                background-size: auto calc(100svh + var(--frame-bleed-extra));
+                background-position: center var(--frame-offset-y);
+                background-size: var(--frame-width) auto;
             }
 
             .container {
@@ -505,9 +493,8 @@
             }
 
             .scroll-frame {
-                background-position: center var(--frame-bleed-offset);
-                background-size: auto calc(100vh + var(--frame-bleed-extra));
-                background-size: auto calc(100svh + var(--frame-bleed-extra));
+                background-position: center var(--frame-offset-y);
+                background-size: var(--frame-width) auto;
             }
         }
 
