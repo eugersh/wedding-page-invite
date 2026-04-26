@@ -24,7 +24,7 @@
             --muted: #7a6a62;
             --white: #ffffff;
             --shadow: rgba(0, 0, 0, 0.08);
-            --mobile-content-width: 314px;
+            --mobile-content-width: 304px;
         }
 
         body {
@@ -43,42 +43,12 @@
 
         body::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100vh;
-            background-image: url('lemon-frame.png');
-            background-repeat: no-repeat;
-            background-position: center top;
-            background-size: contain;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        body::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 100vh;
-            background-image: url('lemon-frame.png');
-            background-repeat: no-repeat;
-            background-position: center bottom;
-            background-size: contain;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .side-frame {
             position: fixed;
             inset: 0;
             background-image: url('lemon-frame.png');
             background-repeat: no-repeat;
             background-position: center top;
             background-size: auto 100vh;
-            clip-path: inset(18vh 0 18vh 0);
             pointer-events: none;
             z-index: 0;
         }
@@ -86,7 +56,7 @@
         .container {
             width: 100%;
             max-width: 860px;
-            padding: 0 20px 34vh;
+            padding: 0 20px 28px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
@@ -491,8 +461,8 @@
 
         @media (max-width: 768px) {
             .container {
-                max-width: calc(var(--mobile-content-width) + 28px);
-                padding: 0 14px 36vh;
+                max-width: calc(var(--mobile-content-width) + 20px);
+                padding: 0 10px 28px;
             }
 
             section {
@@ -509,29 +479,16 @@
 
             body::before {
                 background-position: center top;
-                background-size: max(122vw, 61vh) auto;
-                background-size: max(122vw, 61svh) auto;
-            }
-
-            body::after {
-                background-position: center bottom;
-                background-size: max(122vw, 61vh) auto;
-                background-size: max(122vw, 61svh) auto;
-            }
-
-            .side-frame {
-                background-position: center top;
                 background-size: auto 100vh;
                 background-size: auto 100svh;
-                clip-path: inset(16svh 0 16svh 0);
             }
         }
 
         @media (max-width: 480px) {
             .container {
-                max-width: calc(var(--mobile-content-width) + 20px);
-                padding-left: 10px;
-                padding-right: 10px;
+                max-width: calc(var(--mobile-content-width) + 16px);
+                padding-left: 8px;
+                padding-right: 8px;
             }
 
             .names {
@@ -573,7 +530,7 @@
 
         @media (max-width: 360px) {
             :root {
-                --mobile-content-width: 300px;
+                --mobile-content-width: 288px;
             }
 
             .container {
@@ -590,7 +547,6 @@
     </style>
 </head>
 <body>
-    <div class="side-frame" aria-hidden="true"></div>
     <div class="container">
         <section class="header">
             <h1 class="names">Женя & Мария</h1>
