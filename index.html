@@ -27,16 +27,17 @@
             --white: #ffffff;
             --shadow: rgba(0, 0, 0, 0.08);
             --mobile-content-width: 304px;
-            --frame-width: max(132vw, 58svh);
-            --frame-offset-y: -52px;
+            --telegram-top-clearance: max(14px, env(safe-area-inset-top, 0px));
+            --telegram-bottom-clearance: max(16px, env(safe-area-inset-bottom, 0px));
+            --frame-bleed: clamp(18px, 6vw, 42px);
+            --frame-canvas-width: min(1100px, calc(100vw + var(--frame-bleed) + var(--frame-bleed)));
+            --frame-top-height: clamp(108px, 30vw, 320px);
+            --frame-bottom-height: clamp(96px, 27vw, 289px);
+            --frame-side-width: clamp(52px, 12vw, 128px);
         }
 
         html {
             background-color: var(--beige);
-            background-image: url('lemon-frame.png');
-            background-repeat: no-repeat;
-            background-position: center var(--frame-offset-y);
-            background-size: var(--frame-width) auto;
         }
 
         body {
@@ -51,22 +52,69 @@
             overflow-x: hidden;
         }
 
-        .scroll-frame {
-            position: fixed;
+        .page-frame {
+            position: absolute;
             inset: 0;
-            background-image: url('lemon-frame.png');
-            background-repeat: no-repeat;
-            background-position: center var(--frame-offset-y);
-            background-size: var(--frame-width) auto;
+            min-height: 100svh;
+            overflow: hidden;
             pointer-events: none;
             z-index: 0;
+        }
+
+        .frame-piece {
+            position: absolute;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        .frame-top,
+        .frame-bottom {
+            left: 50%;
+            width: var(--frame-canvas-width);
+            transform: translateX(-50%);
+            background-size: 100% auto;
+        }
+
+        .frame-top {
+            top: var(--telegram-top-clearance);
+            height: var(--frame-top-height);
+            background-image: url('frame-top.png');
+            background-position: center top;
+        }
+
+        .frame-bottom {
+            bottom: var(--telegram-bottom-clearance);
+            height: var(--frame-bottom-height);
+            background-image: url('frame-bottom.png');
+            background-position: center bottom;
+        }
+
+        .frame-left,
+        .frame-right {
+            top: calc(var(--telegram-top-clearance) + var(--frame-top-height) - 24px);
+            bottom: calc(var(--telegram-bottom-clearance) + var(--frame-bottom-height) - 18px);
+            width: var(--frame-side-width);
+            min-height: 220px;
+            background-size: 100% 100%;
+        }
+
+        .frame-left {
+            left: 0;
+            background-image: url('frame-left.png');
+            background-position: left center;
+        }
+
+        .frame-right {
+            right: 0;
+            background-image: url('frame-right.png');
+            background-position: right center;
         }
 
         .container {
             width: 100%;
             max-width: var(--mobile-content-width);
             min-height: 100vh;
-            padding: 0 0 28px;
+            padding: 0 0 calc(var(--telegram-bottom-clearance) + var(--frame-bottom-height) + 24px);
             margin: 0 auto;
             position: relative;
             z-index: 1;
@@ -96,7 +144,7 @@
             background-color: transparent;
             box-shadow: none;
             backdrop-filter: none;
-            padding-top: 52px;
+            padding-top: calc(var(--telegram-top-clearance) + 58px);
         }
 
         .names {
@@ -470,14 +518,8 @@
         }
 
         @media (max-width: 768px) {
-            html {
-                background-position: center var(--frame-offset-y);
-                background-size: var(--frame-width) auto;
-            }
-
             .container {
                 max-width: var(--mobile-content-width);
-                padding: 0 0 28px;
             }
 
             section {
@@ -490,11 +532,6 @@
 
             .contacts {
                 grid-template-columns: 1fr;
-            }
-
-            .scroll-frame {
-                background-position: center var(--frame-offset-y);
-                background-size: var(--frame-width) auto;
             }
         }
 
@@ -545,6 +582,7 @@
         @media (max-width: 360px) {
             :root {
                 --mobile-content-width: 288px;
+                --frame-side-width: 48px;
             }
 
             .container {
@@ -561,7 +599,12 @@
     </style>
 </head>
 <body>
-    <div class="scroll-frame" aria-hidden="true"></div>
+    <div class="page-frame" aria-hidden="true">
+        <div class="frame-piece frame-top"></div>
+        <div class="frame-piece frame-left"></div>
+        <div class="frame-piece frame-right"></div>
+        <div class="frame-piece frame-bottom"></div>
+    </div>
     <div class="container">
         <section class="header">
             <h1 class="names">Женя & Мария</h1>
