@@ -2,7 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#f8f3e9">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Евгений & Мария | 07.08.2026</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -25,6 +27,10 @@
             --white: #ffffff;
             --shadow: rgba(0, 0, 0, 0.08);
             --mobile-content-width: 304px;
+        }
+
+        html {
+            background-color: var(--beige);
         }
 
         body {
@@ -51,6 +57,27 @@
             background-size: auto 100vh;
             pointer-events: none;
             z-index: 0;
+        }
+
+        .frame-overlay {
+            position: fixed;
+            inset: 0;
+            background-image: url('lemon-frame.png');
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: auto 100vh;
+            pointer-events: none;
+            z-index: 2;
+            -webkit-mask:
+                linear-gradient(#000 0 0) top / 100% 16vh no-repeat,
+                linear-gradient(#000 0 0) bottom / 100% 16vh no-repeat,
+                linear-gradient(#000 0 0) left / 18vw 100% no-repeat,
+                linear-gradient(#000 0 0) right / 18vw 100% no-repeat;
+            mask:
+                linear-gradient(#000 0 0) top / 100% 16vh no-repeat,
+                linear-gradient(#000 0 0) bottom / 100% 16vh no-repeat,
+                linear-gradient(#000 0 0) left / 18vw 100% no-repeat,
+                linear-gradient(#000 0 0) right / 18vw 100% no-repeat;
         }
 
         .container {
@@ -482,6 +509,22 @@
                 background-size: auto 100vh;
                 background-size: auto 100svh;
             }
+
+            .frame-overlay {
+                background-position: center top;
+                background-size: auto 100vh;
+                background-size: auto 100svh;
+                -webkit-mask:
+                    linear-gradient(#000 0 0) top / 100% 15svh no-repeat,
+                    linear-gradient(#000 0 0) bottom / 100% 15svh no-repeat,
+                    linear-gradient(#000 0 0) left / 18vw 100% no-repeat,
+                    linear-gradient(#000 0 0) right / 18vw 100% no-repeat;
+                mask:
+                    linear-gradient(#000 0 0) top / 100% 15svh no-repeat,
+                    linear-gradient(#000 0 0) bottom / 100% 15svh no-repeat,
+                    linear-gradient(#000 0 0) left / 18vw 100% no-repeat,
+                    linear-gradient(#000 0 0) right / 18vw 100% no-repeat;
+            }
         }
 
         @media (max-width: 480px) {
@@ -547,6 +590,7 @@
     </style>
 </head>
 <body>
+    <div class="frame-overlay" aria-hidden="true"></div>
     <div class="container">
         <section class="header">
             <h1 class="names">Женя & Мария</h1>
