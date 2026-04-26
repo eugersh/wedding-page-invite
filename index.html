@@ -39,54 +39,22 @@
             color: var(--text);
             line-height: 1.6;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
             width: 100%;
             position: relative;
-            isolation: isolate;
             overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url('lemon-frame.png');
-            background-repeat: no-repeat;
-            background-position: center top;
-            background-size: auto 100vh;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .frame-overlay {
-            position: fixed;
-            inset: 0;
-            background-image: url('lemon-frame.png');
-            background-repeat: no-repeat;
-            background-position: center top;
-            background-size: auto 100vh;
-            pointer-events: none;
-            z-index: 2;
-            -webkit-mask:
-                linear-gradient(#000 0 0) top / 100% 16vh no-repeat,
-                linear-gradient(#000 0 0) bottom / 100% 16vh no-repeat,
-                linear-gradient(#000 0 0) left / 18vw 100% no-repeat,
-                linear-gradient(#000 0 0) right / 18vw 100% no-repeat;
-            mask:
-                linear-gradient(#000 0 0) top / 100% 16vh no-repeat,
-                linear-gradient(#000 0 0) bottom / 100% 16vh no-repeat,
-                linear-gradient(#000 0 0) left / 18vw 100% no-repeat,
-                linear-gradient(#000 0 0) right / 18vw 100% no-repeat;
         }
 
         .container {
             width: 100%;
-            max-width: 860px;
-            padding: 0 20px 28px;
+            max-width: 440px;
+            min-height: 100vh;
+            padding: 0 14px 28px;
             margin: 0 auto;
             position: relative;
-            z-index: 1;
+            border: 70px solid transparent;
+            border-image-source: url('lemon-frame.png');
+            border-image-slice: 180 130 180 130;
+            border-image-repeat: stretch;
         }
 
         h1, h2 {
@@ -488,8 +456,9 @@
 
         @media (max-width: 768px) {
             .container {
-                max-width: calc(var(--mobile-content-width) + 20px);
+                max-width: 430px;
                 padding: 0 10px 28px;
+                border-width: 74px 52px;
             }
 
             section {
@@ -504,34 +473,14 @@
                 grid-template-columns: 1fr;
             }
 
-            body::before {
-                background-position: center top;
-                background-size: auto 100vh;
-                background-size: auto 100svh;
-            }
-
-            .frame-overlay {
-                background-position: center top;
-                background-size: auto 100vh;
-                background-size: auto 100svh;
-                -webkit-mask:
-                    linear-gradient(#000 0 0) top / 100% 15svh no-repeat,
-                    linear-gradient(#000 0 0) bottom / 100% 15svh no-repeat,
-                    linear-gradient(#000 0 0) left / 18vw 100% no-repeat,
-                    linear-gradient(#000 0 0) right / 18vw 100% no-repeat;
-                mask:
-                    linear-gradient(#000 0 0) top / 100% 15svh no-repeat,
-                    linear-gradient(#000 0 0) bottom / 100% 15svh no-repeat,
-                    linear-gradient(#000 0 0) left / 18vw 100% no-repeat,
-                    linear-gradient(#000 0 0) right / 18vw 100% no-repeat;
-            }
         }
 
         @media (max-width: 480px) {
             .container {
-                max-width: calc(var(--mobile-content-width) + 16px);
+                max-width: 100%;
                 padding-left: 8px;
                 padding-right: 8px;
+                border-width: 68px 44px;
             }
 
             .names {
@@ -579,6 +528,7 @@
             .container {
                 padding-left: 10px;
                 padding-right: 10px;
+                border-width: 62px 36px;
             }
 
             .location-card,
@@ -590,7 +540,6 @@
     </style>
 </head>
 <body>
-    <div class="frame-overlay" aria-hidden="true"></div>
     <div class="container">
         <section class="header">
             <h1 class="names">Женя & Мария</h1>
