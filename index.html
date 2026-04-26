@@ -34,7 +34,7 @@
             --frame-top-height: clamp(108px, 30vw, 320px);
             --frame-bottom-height: clamp(96px, 27vw, 289px);
             --frame-side-width: clamp(52px, 12vw, 128px);
-            --frame-side-overhang: clamp(7px, 1.6vw, 16px);
+            --frame-side-inset: -10px;
         }
 
         html {
@@ -101,13 +101,13 @@
         }
 
         .frame-left {
-            left: calc(-1 * var(--frame-side-overhang));
+            left: var(--frame-side-inset);
             background-image: url('frame-left-tile.png');
             background-position: left top;
         }
 
         .frame-right {
-            right: calc(-1 * var(--frame-side-overhang));
+            right: var(--frame-side-inset);
             background-image: url('frame-right-tile.png');
             background-position: right top;
         }
@@ -585,6 +585,7 @@
             :root {
                 --mobile-content-width: 288px;
                 --frame-side-width: 48px;
+                --frame-side-inset: -8px;
             }
 
             .container {
