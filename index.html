@@ -18,9 +18,10 @@
         :root {
             --beige: #f8f3e9;
             --light-beige: #fdfaf5;
-            --red: #cf3e4a;
-            --dark-red: #b92d39;
+            --red: #6f7f4e;
+            --dark-red: #536039;
             --brown: #8d6e63;
+            --olive: #6f7f4e;
             --dark-brown: #5d4037;
             --text: #4a4a4a;
             --muted: #7a6a62;
@@ -45,6 +46,7 @@
             font-family: 'Montserrat', sans-serif;
             background-color: var(--beige);
             color: var(--text);
+            font-size: 1rem;
             line-height: 1.6;
             min-height: 100vh;
             width: 100%;
@@ -146,7 +148,7 @@
             background-color: transparent;
             box-shadow: none;
             backdrop-filter: none;
-            padding-top: calc(var(--telegram-top-clearance) + 58px);
+            padding-top: calc(var(--telegram-top-clearance) + 126px);
         }
 
         .names {
@@ -173,19 +175,19 @@
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 14px;
+            gap: 8px;
             margin-top: 20px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
 
         .countdown-item {
             text-align: center;
-            background: rgba(255, 255, 255, 0.42);
-            padding: 15px 10px;
-            border-radius: 15px;
-            min-width: 72px;
+            background: transparent;
+            padding: 0 2px;
+            border-radius: 0;
+            flex: 1 1 0;
+            min-width: 0;
             box-shadow: none;
-            backdrop-filter: blur(1px);
         }
 
         .countdown-number {
@@ -200,6 +202,7 @@
             color: var(--brown);
             margin-top: 5px;
             text-transform: uppercase;
+            white-space: nowrap;
         }
 
         .location-card,
@@ -259,11 +262,11 @@
             margin-top: 10px;
             background: linear-gradient(135deg, var(--red), var(--dark-red));
             color: var(--white);
-            box-shadow: 0 7px 15px rgba(207, 62, 74, 0.2);
+            box-shadow: 0 7px 15px rgba(111, 127, 78, 0.22);
         }
 
         .secondary-link {
-            background: rgba(207, 62, 74, 0.08);
+            background: rgba(111, 127, 78, 0.1);
             color: var(--dark-red);
         }
 
@@ -285,18 +288,18 @@
 
         .timeline {
             position: relative;
-            padding-left: 28px;
+            padding-left: 38px;
             margin-top: 16px;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 9px;
+            left: 15px;
             top: 0;
             bottom: 0;
             width: 2px;
-            background: var(--red);
+            background: linear-gradient(to bottom, rgba(111, 127, 78, 0.15), var(--olive), rgba(111, 127, 78, 0.15));
         }
 
         .timeline-item {
@@ -311,14 +314,12 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -19px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--red);
-            border: 3px solid var(--white);
-            box-shadow: 0 0 0 2px var(--red);
+            left: -36px;
+            top: 1px;
+            width: 28px;
+            height: 28px;
+            background: url('limon-cutout.png') center / contain no-repeat;
+            filter: drop-shadow(0 1px 1px rgba(93, 64, 55, 0.18));
         }
 
         .timeline-time {
@@ -350,28 +351,30 @@
         }
 
         .swatches {
-            display: flex;
-            gap: 14px;
-            margin: 14px 0 18px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            margin: 16px 0 20px;
         }
 
         .swatch {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            aspect-ratio: 1 / 1;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(93, 64, 55, 0.16);
+            box-shadow: 0 4px 10px rgba(93, 64, 55, 0.08);
         }
 
-        .swatch-color {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 1px solid #ddd;
+        .swatch img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .contacts {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
             gap: 18px;
         }
 
@@ -387,17 +390,25 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
+            align-items: center;
         }
 
         .contact-item {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 12px;
+            gap: 4px;
+            text-align: center;
         }
 
         .contact-item a {
             color: var(--text);
             text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        .rsvp-title {
+            white-space: nowrap;
         }
 
         .contact-item a:hover {
@@ -484,6 +495,7 @@
             border: none;
             padding: 18px 40px;
             border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.05rem;
             font-weight: 600;
             cursor: pointer;
@@ -492,7 +504,7 @@
             transition: transform 0.3s, box-shadow 0.3s;
             width: 100%;
             max-width: 320px;
-            box-shadow: 0 7px 15px rgba(207, 62, 74, 0.18);
+            box-shadow: 0 7px 15px rgba(111, 127, 78, 0.2);
         }
 
         .submit-btn:active {
@@ -503,7 +515,7 @@
             margin-top: 18px;
             padding: 14px 16px;
             border-radius: 14px;
-            background: rgba(207, 62, 74, 0.08);
+            background: rgba(111, 127, 78, 0.1);
             color: var(--dark-brown);
             display: none;
         }
@@ -556,17 +568,28 @@
                 font-size: 2rem;
             }
 
+            .rsvp-title {
+                font-size: 1.72rem;
+            }
+
             .lead {
                 font-size: 0.98rem;
             }
 
             .countdown {
-                gap: 10px;
+                gap: 6px;
             }
 
             .countdown-item {
-                min-width: 66px;
-                padding: 12px 8px;
+                padding: 0 1px;
+            }
+
+            .countdown-number {
+                font-size: 1.45rem;
+            }
+
+            .countdown-label {
+                font-size: 0.66rem;
             }
 
             .radio-group {
@@ -610,7 +633,7 @@
     </div>
     <div class="container">
         <section class="header">
-            <h1 class="names">Женя & Мария</h1>
+            <h1 class="names">Евгений & Мария</h1>
             <div class="date">07 августа 2026 года</div>
             <p class="lead">
                 С большой радостью приглашаем вас разделить с нами один из самых важных дней в нашей жизни.
@@ -653,7 +676,7 @@
                     Открыть маршрут в 2ГИС
                 </a>
                 <p class="section-note">
-                    После окончания торжества для гостей будет организован обратный трансфер.
+                    После окончания торжества для гостей будет организован обратный трансфер в сторону Новосибирска.
                 </p>
             </div>
         </section>
@@ -692,7 +715,7 @@
                     </div>
                 </div>
                 <p class="section-note">
-                    Просим ориентироваться на это расписание при планировании дороги и возвращения домой.
+                    Просим ориентироваться на это расписание при планировании дороги.
                 </p>
             </div>
         </section>
@@ -704,26 +727,31 @@
                     <i class="fas fa-tshirt"></i>
                     <span>Рекомендации по стилю</span>
                 </div>
-                <span class="inline-badge">Раздел еще будет доработан</span>
                 <p class="section-text">Мы будем рады, если вы поддержите цветовую палитру нашей свадьбы:</p>
                 <div class="swatches">
                     <div class="swatch">
-                        <div class="swatch-color" style="background: #f8f3e9;"></div>
-                        <span>Светло-бежевый</span>
+                        <img src="dress-code-1.png" alt="Темный шоколадный оттенок">
                     </div>
                     <div class="swatch">
-                        <div class="swatch-color" style="background: #cf3e4a;"></div>
-                        <span>Красный</span>
+                        <img src="dress-code-2.png" alt="Мягкий лимонный оттенок">
                     </div>
                     <div class="swatch">
-                        <div class="swatch-color" style="background: #8d6e63;"></div>
-                        <span>Коричневый</span>
+                        <img src="dress-code-3.png" alt="Глубокий зеленый оттенок">
+                    </div>
+                    <div class="swatch">
+                        <img src="dress-code-4.png" alt="Оливковый оттенок">
+                    </div>
+                    <div class="swatch">
+                        <img src="dress-code-5.png" alt="Теплый бежевый оттенок">
+                    </div>
+                    <div class="swatch">
+                        <img src="dress-code-6.png" alt="Молочный оттенок">
                     </div>
                 </div>
                 <p class="section-text"><strong>Форма одежды:</strong> Cocktail / Smart Casual</p>
                 <ul class="info-list">
-                    <li>Позже мы добавим сюда полную палитру из 4-6 цветов и примеры подходящих образов.</li>
-                    <li>Просим по возможности избегать полностью белых нарядов, особенно белых платьев.</li>
+                    <li>Можно выбрать любой оттенок из палитры выше или близкий к нему по настроению.</li>
+                    <li>Убедительная просьба избегать полностью белых/молочных нарядов и платьев.</li>
                     <li>Если сомневаетесь в выборе одежды, всегда можно написать нам и уточнить.</li>
                 </ul>
             </div>
@@ -742,7 +770,7 @@
                 </p>
                 <ul class="info-list">
                     <li>Просим не дарить цветы: после праздника мы не сможем сразу забрать их домой, и нам будет жаль, если они быстро завянут.</li>
-                    <li>Если хочется дополнить подарок чем-то еще, будем рады книге с вашей подписью и теплыми пожеланиями.</li>
+                    <li>Если хочется дополнить подарок чем-то еще, будем рады книге с вашей подписью и теплыми пожеланиями для пополнения нашей семейной библиотеки.</li>
                 </ul>
                 <p class="section-note">
                     Спасибо за вашу заботу, внимание и понимание.
@@ -764,7 +792,7 @@
             </div>
             <div class="contacts">
                 <div class="contact-card">
-                    <div class="contact-name">Женя</div>
+                    <div class="contact-name">Евгений</div>
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
@@ -789,11 +817,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="contact-card">
+                    <div class="contact-name">Наталья (координатор)</div>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fab fa-telegram"></i>
+                            <a href="https://t.me/ivanova_wedding" target="_blank" rel="noopener noreferrer">@ivanova_wedding</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section>
-            <h2>Подтвердите участие</h2>
+            <h2 class="rsvp-title">Подтвердите присутствие</h2>
             <div class="info-block">
                 <div class="info-title">
                     <i class="far fa-address-card"></i>
@@ -802,9 +839,6 @@
                 <div class="rsvp-form">
                     <p class="section-text">
                         Пожалуйста, заполните анкету отдельно на каждого гостя. Если вы приглашены парой, форму нужно отправить дважды.
-                    </p>
-                    <p class="form-hint">
-                        После нажатия анкета будет отправлена в Google Form без перехода на отдельную страницу.
                     </p>
                     <form id="rsvpForm">
                         <div class="form-group">
@@ -879,7 +913,7 @@
         </section>
 
         <footer>
-            <p>С любовью, Женя и Мария</p>
+            <p>С любовью, Евгений и Мария</p>
             <p style="margin-top: 10px; font-size: 0.8rem;">07.08.2026 - день нашей свадьбы</p>
         </footer>
     </div>
