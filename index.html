@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#f8f3e9">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <title>Евгений & Мария | 07.08.2026</title>
+    <title>Евгений и Мария | 07.08.2026</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -118,7 +118,7 @@
             width: 100%;
             max-width: var(--mobile-content-width);
             min-height: 100vh;
-            padding: 0 0 calc(var(--telegram-bottom-clearance) + var(--frame-bottom-height) + 24px);
+            padding: 0 clamp(18px, calc(var(--frame-side-width) / 2 + 12px), 44px) calc(var(--telegram-bottom-clearance) + var(--frame-bottom-height) + 24px);
             margin: 0 auto;
             position: relative;
             z-index: 1;
@@ -552,8 +552,7 @@
         @media (max-width: 480px) {
             .container {
                 max-width: var(--mobile-content-width);
-                padding-left: 0;
-                padding-right: 0;
+                padding-inline: clamp(18px, calc(var(--frame-side-width) / 2 + 12px), 44px);
             }
 
             .names {
@@ -633,11 +632,11 @@
     </div>
     <div class="container">
         <section class="header">
-            <h1 class="names">Евгений & Мария</h1>
+            <h1 class="names">Евгений и Мария</h1>
             <div class="date">07 августа 2026 года</div>
             <p class="lead">
-                С большой радостью приглашаем вас разделить с нами один из самых важных дней в нашей жизни.
-                Будем счастливы провести этот день в кругу родных, близких и любимых людей.
+                Жить, любить и чувствовать - вот что по-настоящему важно.
+                Мы приглашаем вас разделить с нами один из самых главных дней в нашей жизни - день нашей свадьбы!
             </p>
 
             <div class="countdown" id="countdown">
@@ -669,7 +668,7 @@
                     <span>г. Бердск, микрорайон Речкуновская Зона Отдыха, 6а</span>
                 </div>
                 <p class="section-text">
-                    Ниже мы оставили ссылку на ближайшую точку в 2ГИС. Позже добавим более подробный гайд по маршруту и подъезду к площадке.
+                    Ниже мы оставили ссылку на ближайшую точку в 2ГИС.
                 </p>
                 <a class="map-link" href="https://2gis.ru/search/%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%20%D0%A0%D0%B5%D1%87%D0%BA%D1%83%D0%BD%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D0%97%D0%BE%D0%BD%D0%B0%20%D0%9E%D1%82%D0%B4%D1%8B%D1%85%D0%B0%2C%206%D0%B0" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-location-arrow"></i>
@@ -684,50 +683,35 @@
         <section>
             <h2>Тайминг свадьбы</h2>
             <div class="info-block">
-                <div class="info-title">
-                    <i class="far fa-clock"></i>
-                    <span>Расписание мероприятия</span>
-                </div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-time">15:30</div>
-                        <div class="timeline-text">Сбор гостей и welcome</div>
+                        <div class="timeline-text">Сбор гостей</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-time">16:30</div>
-                        <div class="timeline-text">Церемония</div>
+                        <div class="timeline-text">Торжественная церемония</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-time">17:00</div>
-                        <div class="timeline-text">Начало банкета</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">22:00</div>
-                        <div class="timeline-text">Танцевальная вечеринка</div>
+                        <div class="timeline-text">Праздничный банкет</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-time">23:00</div>
-                        <div class="timeline-text">Окончание торжества</div>
+                        <div class="timeline-text">Заверешение торжества</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-time">23:15</div>
                         <div class="timeline-text">Обратный трансфер</div>
                     </div>
                 </div>
-                <p class="section-note">
-                    Просим ориентироваться на это расписание при планировании дороги.
-                </p>
             </div>
         </section>
 
         <section>
             <h2>Дресс-код</h2>
             <div class="info-block">
-                <div class="info-title">
-                    <i class="fas fa-tshirt"></i>
-                    <span>Рекомендации по стилю</span>
-                </div>
-                <p class="section-text">Мы будем рады, если вы поддержите цветовую палитру нашей свадьбы:</p>
+                <p class="section-text">Мы будем рады, если вы поддержите цветовую гамму нашей свадьбы:</p>
                 <div class="swatches">
                     <div class="swatch">
                         <img src="dress-code-1.png" alt="Темный шоколадный оттенок">
@@ -748,9 +732,9 @@
                         <img src="dress-code-6.png" alt="Молочный оттенок">
                     </div>
                 </div>
-                <p class="section-text"><strong>Форма одежды:</strong> Cocktail / Smart Casual</p>
+                <p class="section-text"><strong>Стиль одежды:</strong> Cocktail / Smart Casual</p>
                 <ul class="info-list">
-                    <li>Можно выбрать любой оттенок из палитры выше или близкий к нему по настроению.</li>
+                    <li>Предлагаем выбрать любой оттенок из палитры выше или близкий к нему по настроению.</li>
                     <li>Убедительная просьба избегать полностью белых/молочных нарядов и платьев.</li>
                     <li>Если сомневаетесь в выборе одежды, всегда можно написать нам и уточнить.</li>
                 </ul>
@@ -758,22 +742,16 @@
         </section>
 
         <section>
-            <h2>Подарки и цветы</h2>
+            <h2>Пожелания по подаркам</h2>
             <div class="info-block">
-                <div class="info-title">
-                    <i class="fas fa-gift"></i>
-                    <span>Ваше присутствие - уже подарок</span>
-                </div>
                 <p class="section-text">
-                    Самое главное для нас - разделить этот день вместе с вами. Если вы захотите поздравить нас подарком,
-                    мы будем рады вкладу в виде конверта.
+                    Ваше присутствие в день нашей свадьбы - очень значимо для нас! Мы будем балагодарны вам за подарок в виде вклада в наш семейный бюджет!
                 </p>
-                <ul class="info-list">
-                    <li>Просим не дарить цветы: после праздника мы не сможем сразу забрать их домой, и нам будет жаль, если они быстро завянут.</li>
-                    <li>Если хочется дополнить подарок чем-то еще, будем рады книге с вашей подписью и теплыми пожеланиями для пополнения нашей семейной библиотеки.</li>
-                </ul>
-                <p class="section-note">
-                    Спасибо за вашу заботу, внимание и понимание.
+                <p class="section-text">
+                    Мы понимаем, что дарить цветы на свадьбу - это традиция. Но мы не сможем насладиться их красотой в полной мере...
+                </p>
+                <p class="section-text">
+                    Если вам хочется дополнить подарок чем-то еще, то мы будем рады книге с вашей подписью и пожеланиями.
                 </p>
             </div>
         </section>
@@ -781,13 +759,8 @@
         <section>
             <h2>Контакты</h2>
             <div class="info-block" style="margin-bottom: 18px;">
-                <div class="info-title">
-                    <i class="fas fa-bus"></i>
-                    <span>Вопросы по трансферу и организации</span>
-                </div>
                 <p class="section-text">
-                    Если у вас будут вопросы по логистике, формату праздника или обратному трансферу, смело свяжитесь с нами.
-                    Ближе к дате мы отдельно сообщим детали отправления трансфера.
+                    Если у вас возникнут вопросы по логистике, формату праздника или обратному трансферу, смело свяжитесь с нами.
                 </p>
             </div>
             <div class="contacts">
@@ -830,15 +803,11 @@
         </section>
 
         <section>
-            <h2 class="rsvp-title">Подтвердите присутствие</h2>
+            <h2 class="rsvp-title">Анкета гостя</h2>
             <div class="info-block">
-                <div class="info-title">
-                    <i class="far fa-address-card"></i>
-                    <span>Анкета гостя</span>
-                </div>
                 <div class="rsvp-form">
                     <p class="section-text">
-                        Пожалуйста, заполните анкету отдельно на каждого гостя. Если вы приглашены парой, форму нужно отправить дважды.
+                        Пожалуйста, заполните анкету. Если вы приглашены парой, форму нужно отправить дважды.
                     </p>
                     <form id="rsvpForm">
                         <div class="form-group">
@@ -890,21 +859,6 @@
                                 </label>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Нужен ли вам обратный трансфер?</label>
-                            <div class="radio-group">
-                                <label class="radio-option">
-                                    <input type="radio" name="transfer" value="Да, нужен">
-                                    <span>Да, нужен</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" name="transfer" value="Нет, доберусь самостоятельно">
-                                    <span>Нет, доберусь самостоятельно</span>
-                                </label>
-                            </div>
-                        </div>
-
                         <button type="submit" class="submit-btn">Отправить ответ</button>
                     </form>
                     <div class="form-status" id="formStatus"></div>
@@ -946,10 +900,10 @@
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            document.getElementById('days').textContent = days.toString().padStart(3, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            document.getElementById('days').textContent = days.toString();
+            document.getElementById('hours').textContent = hours.toString();
+            document.getElementById('minutes').textContent = minutes.toString();
+            document.getElementById('seconds').textContent = seconds.toString();
         }
 
         function showFormStatus(message) {
